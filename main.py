@@ -11,6 +11,9 @@ from agents import CareerGuidanceAgent
 # Load environment variables
 load_dotenv()
 
+# Get port from environment variable or use default
+port = int(os.getenv("PORT", 8000))
+
 app = FastAPI(
     title="Career Guidance Agent System",
     description="An intelligent system for providing career guidance to university students",
@@ -87,4 +90,4 @@ async def get_skills_assessment():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) 
+    uvicorn.run(app, host="0.0.0.0", port=port) 
