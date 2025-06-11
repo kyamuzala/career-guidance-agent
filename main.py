@@ -83,8 +83,4 @@ async def get_skills_assessment():
         assessment = await career_agent.get_skills_assessment()
         return {"questions": assessment}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000))) 
+        raise HTTPException(status_code=500, detail=str(e)) 
