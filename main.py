@@ -48,9 +48,25 @@ class CareerRecommendation(BaseModel):
     growth_potential: str
 
 # Routes
-@app.get("/")
+@app.get("/", tags=["Health Check"])
 async def root():
-    return {"message": "Welcome to the Career Guidance Agent System"}
+    """
+    Health check endpoint
+    """
+    return {
+        "status": "healthy",
+        "message": "Career Guidance Agent System is running"
+    }
+
+@app.get("/health", tags=["Health Check"])
+async def health_check():
+    """
+    Health check endpoint
+    """
+    return {
+        "status": "healthy",
+        "message": "Career Guidance Agent System is running"
+    }
 
 @app.post("/analyze-profile", response_model=List[CareerRecommendation])
 async def analyze_student_profile(profile: StudentProfile):
